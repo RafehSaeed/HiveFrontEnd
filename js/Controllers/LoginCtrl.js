@@ -2,7 +2,7 @@
 
 
 
-function LoginCtrl($scope,$http) { 
+function LoginCtrl($scope,$http,$location,$window) { 
 
  
 
@@ -33,11 +33,24 @@ function LoginCtrl($scope,$http) {
          if (datasize.length == 1)
               {
               $scope.login_status= data.content;
-              console.log(data.content)
-                 
+                $scope.loggedin= false;
+              
               }
+             else {
+
+                if(datasize.length > 7)
+                {
+
+              $scope.loggedin= true;
+              mainpageref = "file:///home/rafeh/Desktop/Hive-FrontEnd/mainpage.html";
+            
+
+             
+
+               $window.location.href = mainpageref;
+             }
       
-    
+              }
         
       }).
       error(function(data, status, headers, config) {

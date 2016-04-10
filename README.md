@@ -7,3 +7,14 @@ $http.get('http://localhost:3000/admins.json')
             .error(function(err) { 
               return err; 
             }); 
+
+
+
+   Help with page access
+
+   <div ng-show="loggedin">Dashboard is now authorized.</div>
+      
+      
+      
+      
+      <div ng-show="!loggedin">Dashboard won't show until authorization returned from $http...</div>
