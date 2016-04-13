@@ -61,11 +61,26 @@ function LoginCtrl($scope,$http,$location,$window) {
     }
   
 
+// Categories Factory
+
+
+
 }
 
 
 
 
 
-app.controller('LoginController', LoginCtrl);
 
+
+
+app.controller('LoginController', LoginCtrl);
+app.controller('Category',category);
+
+
+     function category($scope,category) {
+  category.success(function(data) {
+  $scope.category = data;
+    console.log(data);
+  });
+}
