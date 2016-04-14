@@ -1,103 +1,114 @@
-<html><head>    <!-- Setting up name Hive-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <!-- Hooking up Angular-->
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="app.js"></script>
-     <!-- Controllers -->
-     <script src="js/Services/category.js"></script>
-    <script src="js/Controllers/LoginCtrl.js"></script>
-    
+  <html><head>    <!-- Setting up name Hive-->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <!-- Hooking up Angular-->
+      
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="app.js"></script>
+       <!-- Controllers -->
+       <script src="js/Services/category.js"></script>
+      <script src="js/Controllers/LoginCtrl.js"></script>
+      
 
 
 
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-  </head><body ng-app = "Hive" ng-controller="LoginController" >
-    <div class="cover">
-      <div class="navbar">
+      <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    </head><body ng-app = "Hive" ng-controller="LoginController" >
+      <div class="cover">
+        <div class="navbar">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand"><img height="20" alt="Brand" src="imgs/hivetextonly.png"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav navbar-right"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="background-image-fixed cover-image" style="background-image : url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=800&amp;ixjsv=2.1.0&amp;ixlib=rb-0.3.5&amp;q=80&amp;w=1600')"></div>
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand"><img height="20" alt="Brand" src="imgs/hivetextonly.png"></a>
-          </div>
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right"></ul>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <img src="imgs/hivenew.png" class="center-block img-responsive">
+              <h2 class="text-center text-primary"></h2>
+              <p class="text-inverse"></p>
+              <br>
+              <br>
+            </div>
           </div>
         </div>
       </div>
-      <div class="background-image-fixed cover-image" style="background-image : url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?crop=entropy&amp;fit=crop&amp;fm=jpg&amp;h=800&amp;ixjsv=2.1.0&amp;ixlib=rb-0.3.5&amp;q=80&amp;w=1600')"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <img src="imgs/hivenew.png" class="center-block img-responsive">
-            <h2 class="text-center text-primary"></h2>
-            <p class="text-inverse"></p>
-            <br>
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <form class="form-horizontal" role="form" name="myForm" ng-submit="Login()">
-              <div class="form-group has-success">
-                <div class="col-sm-2">
-                  <label for="inputEmail3" class="control-label">Email</label>
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
 
+             <div ng-show="!loggedin">
+
+              <form class="form-horizontal" role="form" name="myForm" ng-submit="Login()">
+                <div class="form-group has-success">
+                  <div class="col-sm-2">
+                    <label for="inputEmail3" class="control-label">Email</label>
+
+                  </div>
+
+                  <div class="col-sm-10">
+
+                    <input type="email" name="myAddress" ng-model="formData.email"class="form-control" id="inputEmail3" placeholder="Email" required> 
+                    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+                  </div>
                 </div>
+                <div class="form-group has-success">
+                  <div class="col-sm-2">
+                    <label for="inputPassword3" class="control-label">Password</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="password" name="password" ng-model="formData.password" class="form-control" id="inputPassword3" placeholder="Password" ng-minlength="8" ng-maxlength="20"  required>
 
-                <div class="col-sm-10">
+                     <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</br> </span>
 
-                  <input type="email" name="myAddress" ng-model="formData.email"class="form-control" id="inputEmail3" placeholder="Email" required> 
-                  <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+                     {{login_status}} 
+
+
+                    
+                  </div>
+      
+                   
                 </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-2 text-right">
+                    <button type="submit" class="btn btn-info btn-lg" ng-disabled="!myForm.$valid">Sign in</button>
+
+                     <button type="register" class="btn btn-info btn-lg">Register</button>
+
+                       
+                  </div>
+                    
+                </div>
+              </form>
               </div>
-              <div class="form-group has-success">
-                <div class="col-sm-2">
-                  <label for="inputPassword3" class="control-label">Password</label>
-                </div>
-                <div class="col-sm-10">
-                  <input type="password" name="password" ng-model="formData.password" class="form-control" id="inputPassword3" placeholder="Password" ng-minlength="8" ng-maxlength="20"  required>
 
-                   <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</br> </span>
+               <div ng-show="loggedin">
 
-                   {{login_status}} 
-
-
-                  
-                </div>
-    
-                 
-              </div>
-              <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
-                  <button type="submit" class="btn btn-info btn-lg" ng-disabled="!myForm.$valid">Sign in</button>
-
-                   <button type="register" class="btn btn-info btn-lg">Register</button>
-
-                     
+                <a href= "file:///home/rafeh/Desktop/Hive-FrontEnd/mainpage.html" class="btn btn-info btn-lg">Continue to Hive</a>
                 </div>
-                  
-              </div>
-            </form>
-           
-           
+                </div>
+         
+             
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  
+    
 
-</body></html>
+  </body></html>

@@ -7,3 +7,4 @@ app.directive('category', function() {
     templateUrl: 'js/Directives/category.html' 
   }; 
 });
+

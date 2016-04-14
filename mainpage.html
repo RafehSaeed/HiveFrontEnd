@@ -8,7 +8,7 @@
      <script src="js/Controllers/LoginCtrl.js"></script>
      <!-- Directives -->
      <script src="js/Directives/category.js"></script>
-
+    
 
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -25,31 +25,42 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand"><img height="20" alt="Brand" src="imgs/hivetextonly.png"></a>
+
                 </div>
+
                 <div class="collapse navbar-collapse" id="navbar-ex-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active">
-                            <a href="#">Home</a>
+                       
                         </li>
                         <li>
-                            <a href="#">Contacts</a>
+                                
+                               <a  href="file:///home/rafeh/Desktop/Hive-FrontEnd/index.html" ng-click="logOut()" ng-show="loggedin">Log Out</a> 
+                               
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="section">
+
+        <div ng-show="loggedin">
+      
+      
+      
+      
             <div class="container" ng-controller="Category">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="text-center">Service Categories</h1>
-                        <p class="text-center lead">Choose the category from which you want to hire</p>
+                        <p class="text-center lead">Choose the category from which you want to hire!</p>
                     </div>
                 </div>
                 <div class="row" >
                 
                  <category class="col-md-3" info="thecategory" ng-repeat="thecategory in category"></category>
-
+                  </div>
+      
                 </div>
               
                 <div class="row">

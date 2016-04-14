@@ -4,7 +4,16 @@
 
 function LoginCtrl($scope,$http,$location,$window) { 
 
- 
+      if($window.sessionStorage.loggedin == "true"){
+       $scope.loggedin = true;
+     }
+
+      else
+      {
+        $scope.loggedin = false;
+      }
+
+       console.log($scope.loggedin);
 
          this.formData = {
              password: '',
@@ -13,6 +22,20 @@ function LoginCtrl($scope,$http,$location,$window) {
         };
 
 
+    $scope.logOut = function() {
+    
+   
+      
+    $window.sessionStorage.loggedin = false;
+     $scope.loggedin = false;
+    console.log($scope.loggedin);
+
+
+      
+
+    };
+ 
+    //Function used to Login to the application
    $scope.Login = function () {
        
        //Send Post Request
@@ -33,7 +56,9 @@ function LoginCtrl($scope,$http,$location,$window) {
          if (datasize.length == 1)
               {
               $scope.login_status= data.content;
-                $scope.loggedin= false;
+                //$scope.loggedin= false;
+              $window.sessionStorage.loggedin = false;
+         
               
               }
              else {
@@ -41,7 +66,12 @@ function LoginCtrl($scope,$http,$location,$window) {
                 if(datasize.length > 7)
                 {
 
-              $scope.loggedin= true;
+             // $scope.loggedin= true;
+              $window.sessionStorage.loggedin = true;
+               
+
+
+   
               mainpageref = "file:///home/rafeh/Desktop/Hive-FrontEnd/mainpage.html";
             
 
@@ -81,6 +111,8 @@ app.controller('Category',category);
      function category($scope,category) {
   category.success(function(data) {
   $scope.category = data;
-    console.log(data);
+   // console.log(data);
   });
 }
+
+
