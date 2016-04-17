@@ -4,6 +4,7 @@
 //Controller required to let users register to Hive
 function RegisterCtrl($scope,$http,$location,$window) { 
 
+      registered = false;
       this.formData = {
              username: '',
              password: '',
@@ -18,7 +19,7 @@ function RegisterCtrl($scope,$http,$location,$window) {
 
 
 
-
+   this.registered = true;
    console.log(this.formData);
 }
 

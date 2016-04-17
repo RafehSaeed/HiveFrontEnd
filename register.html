@@ -3,29 +3,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="app.js"></script>
-
-    <!-- Directives -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Controllers -->
     <script src="js/Controllers/RegisterCtrl.js"></script>
+        <!-- Directives -->
+    <script src="js/Directives/compareTo.js"></script>
+
+
   </head><body ng-app="Hive" ng-controller="RegisterController">
     <div class="section">
      
+       <div ng-show="!registered">
+
         <div class="container" >
           <div class="row">
             <div class="col-md-12">
               <h1 class="text-center">Register</h1>
               <p class="text-center lead">Complete registeration below</p>
-              <form class="form-horizontal" role="form" name="myForm" ng-submit="Register()">
+              <form class="form-horizontal" role="form" name="FormOne" ng-submit="Register()">
                 <div class="form-group">
                   <div class="col-sm-2">
                     <label for="inputEmail3" class="control-label">Email</label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" ng-model="formData.email" placeholder="Email">
+                   <input type="email" name="email" ng-model="formData.email"class="form-control" id="inputEmail3" placeholder="Email" required> 
+                    <span ng-show="FormOne.email.$error.email">Not a valid e-mail address</span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -35,7 +40,9 @@
                     </label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" ng-model="formData.username" placeholder="User Name">
+                    <input type="text" class="form-control" name="username" id="username" ng-model="formData.username" placeholder="User Name" ng-minlength="4" required>
+                     <span ng-show="FormOne.username.$error.minlength">Username must be bigger than 3 characters.</span>
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -43,16 +50,20 @@
                     <label for="password" class="control-label">Password</label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" ng-model="formData.password" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="1password" ng-model="formData.password" placeholder="Password" ng-minlength="8" ng-maxlength="20"  required>
+                    <span ng-show="!FormOne.password.$error.required && (FormOne.password.$error.minlength || FormOne.password.$error.maxlength) && FormOne.password.$dirty">Passwords must be between 8 and 20 characters.</br> </span>
+
                   </div>
                 </div>
               
                 <div class="form-group">
                   <div class="col-sm-2">
-                    <label for="confirmpassword" class="control-label" ng-model="formData.confirmpassword">Confirmpassword </label>
+                    <label for="confirmpassword" class="control-label"  >Confirmpassword </label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="confirmpassword" placeholder="Password" ng-model="formData.password">
+                    <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" placeholder="Password" ng-model="formData.confirmpassword" ng-minlength="8" ng-maxlength="20" required compare-to="formData.password" >
+                    <span ng-show="FormOne.confirmpassword.$error.compareTo && !FormOne.confirmpassword.$error.required">Passwords do not match </span>
+
                   </div>
                 </div>
 
@@ -63,8 +74,8 @@
                   </div>
                   <div class="col-sm-10">
                   
-                    <input type="radio" id="usertype" name="usertype" value="Buisness" ng-model="formData.usertype">Buisness
-                    <input type="radio" id="usertype" name="usertype" value="ServiceProvider" ng-model="formData.usertype"  >Service Provider
+                    <input type="radio" id="usertype" name="usertype" value="Buisness" ng-model="formData.usertype" required>&nbsp; Buisness
+                    <input type="radio" id="usertype" name="usertype" value="ServiceProvider" ng-model="formData.usertype"required>&nbsp;Service Provider
                         
 
 
@@ -74,7 +85,7 @@
 
                   <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-info">Register</button>
+                <button type="submit" class="btn btn-info" ng-disabled="!FormOne.$valid">Register</button>
               </div>
             </div>
               </form>
@@ -82,8 +93,12 @@
           
           </div>
         </div>
+        </div>
      
         
+               <div ng-show="registered">
+
+
         <div class="container" >
           <div class="row">
             <div class="col-md-12">
@@ -143,6 +158,8 @@
 
               </div>
             </div>
+
+                </div>
           </div>
         </div>
       
