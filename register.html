@@ -11,17 +11,19 @@
     <script src="js/Controllers/RegisterCtrl.js"></script>
         <!-- Directives -->
     <script src="js/Directives/compareTo.js"></script>
+       <!-- Animation-->
+      <link rel="stylesheet" href="animate.css">
 
 
   </head><body ng-app="Hive" ng-controller="RegisterController">
     <div class="section">
      
-       <div ng-show="!registered">
+       <div ng-show="!registered" class="animated bounceInRight">
 
         <div class="container" >
           <div class="row">
             <div class="col-md-12">
-              <h1 class="text-center">Register</h1>
+              <h1 class="text-center" ><div class="animated zoomin">Register</div></h1>
               <p class="text-center lead">Complete registeration below</p>
               <form class="form-horizontal" role="form" name="FormOne" ng-submit="Register()">
                 <div class="form-group">
@@ -96,7 +98,7 @@
         </div>
      
         
-               <div ng-show="registered">
+               <div ng-show="registered" class="animated bounceInRight">
 
 
         <div class="container" >
