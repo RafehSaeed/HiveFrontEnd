@@ -3,19 +3,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="app.js"></script>
-    <!-- Controllers -->
-    <script src="js/Services/category.js"></script>
-    <script src="js/Controllers/LoginCtrl.js"></script>
+
     <!-- Directives -->
-    <script src="js/Directives/category.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="bootstrap.css" rel="stylesheet" type="text/css">
-  </head><body ng-app="Hive" ng-controller="LoginController">
+        <!-- Controllers -->
+    <script src="js/Controllers/RegisterCtrl.js"></script>
+  </head><body ng-app="Hive" ng-controller="RegisterController">
     <div class="section">
      
-        <div class="container" ng-controller="RegisterController">
+        <div class="container" >
           <div class="row">
             <div class="col-md-12">
               <h1 class="text-center">Register</h1>
@@ -26,7 +25,7 @@
                     <label for="inputEmail3" class="control-label">Email</label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="email" class="form-control" id="inputEmail3" ng-model="formData.email" placeholder="Email">
                   </div>
                 </div>
                 <div class="form-group">
@@ -36,7 +35,7 @@
                     </label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" placeholder="User Name">
+                    <input type="text" class="form-control" id="username" ng-model="formData.username" placeholder="User Name">
                   </div>
                 </div>
                 <div class="form-group">
@@ -44,16 +43,16 @@
                     <label for="password" class="control-label">Password</label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" ng-model="formData.password" placeholder="Password">
                   </div>
                 </div>
               
                 <div class="form-group">
                   <div class="col-sm-2">
-                    <label for="confirmpassword" class="control-label">Confirmpassword</label>
+                    <label for="confirmpassword" class="control-label" ng-model="formData.confirmpassword">Confirmpassword </label>
                   </div>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Password" ng-model="formData.password">
                   </div>
                 </div>
 
@@ -63,22 +62,29 @@
                     <label for="usertype" class="control-label">Usertype</label>
                   </div>
                   <div class="col-sm-10">
-                    <label>
-                      <input type="radio" id="usertype" value="Buisness">Buisness</label>
-                    <input type="radio" id="usertype" value="ServiceProvider">Service Provider</div>
+                  
+                    <input type="radio" id="usertype" name="usertype" value="Buisness" ng-model="formData.usertype">Buisness
+                    <input type="radio" id="usertype" name="usertype" value="ServiceProvider" ng-model="formData.usertype"  >Service Provider
+                        
+
+
+                    </div>
+
                 </div>
-              </form>
-            </div>
-            <div class="form-group">
+
+                  <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-info">Register</button>
               </div>
             </div>
+              </form>
+            </div>
+          
           </div>
         </div>
      
         
-        <div class="container" ng-controller="">
+        <div class="container" >
           <div class="row">
             <div class="col-md-12">
               <h1 class="text-center">Profile Information</h1>

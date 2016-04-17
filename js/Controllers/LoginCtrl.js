@@ -4,6 +4,7 @@
 
 function LoginCtrl($scope,$http,$location,$window) { 
 
+
       if($window.sessionStorage.loggedin == "true"){
        $scope.loggedin = true;
      }
@@ -22,6 +23,7 @@ function LoginCtrl($scope,$http,$location,$window) {
         };
 
 
+
     $scope.logOut = function() {
     
    
@@ -38,6 +40,7 @@ function LoginCtrl($scope,$http,$location,$window) {
     //Function used to Login to the application
    $scope.Login = function () {
        
+          console.log(this.formData);
        //Send Post Request
     $scope.login_status = ""
     
