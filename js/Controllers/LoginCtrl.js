@@ -7,6 +7,7 @@ function LoginCtrl($scope,$http,$location,$window) {
 
       if($window.sessionStorage.loggedin == "true"){
        $scope.loggedin = true;
+       $scope.username =  $window.sessionStorage.username;
      }
 
       else
@@ -51,7 +52,7 @@ function LoginCtrl($scope,$http,$location,$window) {
     $http.post('http://localhost:3000/login',session).
     success(function(data, status, headers, config) {
         // Check if the user doesnt exist
-        
+          console.log(data);
 
          var datasize = Object.keys(data);
         
@@ -69,9 +70,12 @@ function LoginCtrl($scope,$http,$location,$window) {
                 if(datasize.length > 7)
                 {
 
-             // $scope.loggedin= true;
+              $scope.loggedin= true;
               $window.sessionStorage.loggedin = true;
-               
+              $window.sessionStorage.username = data.username
+            // $window.sessionStorage.username = data[username];
+            
+
 
 
    
