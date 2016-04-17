@@ -1,0 +1,174 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <!-- Controllers -->
+    <script src="js/Services/category.js"></script>
+    <script src="js/Controllers/LoginCtrl.js"></script>
+    <!-- Directives -->
+    <script src="js/Directives/category.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+  </head><body ng-app="Hive" ng-controller="LoginController">
+    <div class="section">
+     
+        <div class="container" ng-controller="RegisterController">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-center">Register</h1>
+              <p class="text-center lead">Complete registeration below</p>
+              <form class="form-horizontal" role="form" name="myForm" ng-submit="Register()">
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="inputEmail3" class="control-label">Email</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="username" class="control-label">Username
+                      <br>
+                    </label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="username" placeholder="User Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="password" class="control-label">Password</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="confirmpassword" class="control-label">Confirmpassword</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Password">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="usertype" class="control-label">Usertype</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <label>
+                      <input type="radio" id="usertype" value="Buisness">Buisness</label>
+                    <input type="radio" id="usertype" value="ServiceProvider">Service Provider</div>
+                </div>
+              </form>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+        
+        <div class="container" ng-controller="">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-center">Profile Information</h1>
+              <p class="text-center lead">Complete profile information below</p>
+              <form class="form-horizontal" role="form" name="myForm" ng-submit="Complete()">
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="firstname" class="control-label">Firstname</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" placeholder="First Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="buisnessname" class="control-label">Buisnessname</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="buisnessname" placeholder="Buisness Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="lastname" class="control-label">Lastname 
+                    
+                    </label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="address" class="control-label">Address
+                      <br>
+                    </label>
+                  </div>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" placeholder="Address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="postalcode" class="control-label">PostalCode</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <label></label>
+                    <input type="text" class="form-control" id="postalcode" placeholder="Postal Code">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info">Complete</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <footer class="section section-info">
+      <div class="container">
+        <div class="row text-left">
+          <div class="col-sm-6 text-left">
+            <p class="text-info text-left">
+              <br>
+              <br>
+            </p>
+            <div class="row">
+              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 hidden-xs text-left">
+                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+
+</body></html>
