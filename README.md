@@ -12,8 +12,8 @@ This is an app coded in Angular JS representing the front end of the Hive applic
     curl http://npmjs.org/install.sh | sh
   Once you have npm:
     npm install http-server -g
-    
   This will install http-server globally so that it may be run from the command line.
+  
 4.Open the repository directory and run command to start front end application.
   http-server -o
 
