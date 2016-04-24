@@ -6,10 +6,22 @@
      <!-- Animation-->
      <script src="animate.css"></script>
     <!-- Controllers -->
-    <script src="js/Services/category.js"></script>
     <script src="js/Controllers/LoginCtrl.js"></script>
+    <!-- Services -->
+    <script src="js/Services/category.js"></script>
+    <script src="js/Services/review.js"></script>
+    <script src="js/Services/resume.js"></script>
+    <script src="js/Services/buisness.js"></script>
+    <script src="js/Services/service.js"></script>
     <!-- Directives -->
-    <script src="js/Directives/category.js"></script>
+    <script src="js/Directives/Category/category.js"></script>
+    <script src="js/Directives/Review/review.js"></script>
+    <script src="js/Directives/Resume/resume.js"></script>
+    <script src="js/Directives/Buisness/buisness.js"></script>
+    <script src="js/Directives/Service/service.js"></script>
+
+
+
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -68,18 +80,119 @@
     <div class="section">
     <div class="container">
     <div class="row">
-    <div class="col-md-3">
-        <h1 class="text-center">Resume Data</h1>
+    <div class="col-md-2" ng-controller ="Resume">
+
+        <h1 class="text-center">Resume Data </h1>
+
+         <table class='table'>
+         <thead>
+    <tr>
+
+      <th>Name</th>
+      <th>Age</th>
+      <th>Phone Number</th>
+      <th>Experience</th>
+      <th>ServiceProvider Id</th>
+
+    </tr>
+  </thead>
+
+    <tbody>
+       <tr class="info" ng-repeat="resume in resumes"  resume="resume"> 
+       </tr>
+
+     </tbody>
+       </table>
+
+
     </div>
-    <div class="col-md-3">
+
+
+
+
+
+
+
+
+    <div class="col-md-2" ng-controller="Review">
         <h1 class="text-center">Review Data</h1>
+
+       <table class='table'>
+         <thead>
+    <tr>
+
+      <th>Rating</th>
+      <th>Comment</th>
+      <th>Buisness Id</th>
+      <th>ServiceProvider Id</th>
+    </tr>
+  </thead>
+
+    <tbody>
+       <tr class="info" ng-repeat="review in reviews"  review="review"> 
+       </tr>
+
+     </tbody>
+       </table>
+
+
     </div>
-    <div class="col-md-3">
-        <h1 class="text-center">Users Data</h1>
+    <div class="col-md-2" ng-controller="Buisness">
+        <h1 class="text-center">Buisness Data</h1>
+
+              
+               <table class='table'>
+         <thead>
+    <tr>
+
+      <th>Buisness Name</th>
+      <th>Buisness Address</th>
+
+    </tr>
+  </thead>
+
+    <tbody>
+       <tr class="info" ng-repeat="buisness in buisnesses"  buisness="buisness"> 
+       </tr>
+
+     </tbody>
+       </table>
+
+
+
+
+
+
     </div>
-    <div class="col-md-3">
-        <h1 class="text-center">Service Data</h1>
+    <div class="col-md-2"  ng-controller="Service">
+        <h1 class="text-center"> Service Data</h1>
+
+            <table class='table'>
+         <thead>
+    <tr>
+
+      <th>Service Description</th>
+      <th>ServiceProvider Id</th>
+      <th>Category Id</th>
+
+
+    </tr>
+  </thead>
+
+    <tbody>
+       <tr class="info" ng-repeat="service in services"  service="service"> 
+       </tr>
+
+     </tbody>
+       </table>
+
+
     </div>
+
+
+
+
+
     </div>
     </div>
     </div>

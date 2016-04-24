@@ -1971,7 +1971,7 @@ pre code {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: 50%;
   }
   .col-md-1 {
     width: 8.33333333%;
@@ -2275,9 +2275,10 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 8px;
+  padding: 1px;
   line-height: 1.42857143;
   vertical-align: top;
+  text-align: center;
   border-top: 1px solid #dddddd;
 }
 .table > thead > tr > th {

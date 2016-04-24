@@ -96,7 +96,7 @@ function LoginCtrl($scope,$http,$location,$window) {
     }
   
 
-// Categories Factory
+
 
 
 
@@ -111,8 +111,12 @@ function LoginCtrl($scope,$http,$location,$window) {
 
 app.controller('LoginController', LoginCtrl);
 app.controller('Category',category);
+app.controller('Review',review);
+app.controller('Resume',resume);
+app.controller('Buisness',buisness);
+app.controller('Service',service);
 
-
+// Categories Factory
      function category($scope,category) {
   category.success(function(data) {
   $scope.category = data;
@@ -120,4 +124,36 @@ app.controller('Category',category);
   });
 }
 
+// Reviews Factory
+     function review($scope,review) {
+  review.success(function(data) {
+  $scope.reviews = data;
+   // console.log(data);
+  });
+}
 
+// Resumes Factory
+     function resume($scope,resume) {
+  resume.success(function(data) {
+  $scope.resumes = data;
+   // console.log(data);
+  });
+}
+
+
+// Buisness Factory
+     function buisness($scope,buisness) {
+  buisness.success(function(data) {
+  $scope.buisnesses = data;
+   // console.log(data);
+  });
+}
+
+
+// Service Factory
+     function service($scope,service) {
+  service.success(function(data) {
+  $scope.services = data;
+   // console.log(data);
+  });
+}
