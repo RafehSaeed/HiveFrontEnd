@@ -78,13 +78,11 @@ function LoginCtrl($scope,$http,$location,$window) {
 
 
 
-   
-              mainpageref = "file:///home/rafeh/Desktop/Hive-FrontEnd/mainpage.html";
             
 
              
 
-               $window.location.href = mainpageref;
+               $window.location.href = "http://127.0.0.1:8080/mainpage.html";
              }
       
               }
