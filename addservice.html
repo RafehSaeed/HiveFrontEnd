@@ -1,0 +1,119 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap.css" rel="stylesheet" type="text/css">
+
+
+
+        <!-- Controllers -->
+    <script src="js/Controllers/RegisterCtrl.js"></script>
+    <script src="js/Services/category.js"></script>
+    <script src="js/Controllers/LoginCtrl.js"></script>
+        <!-- Directives -->
+    <script src="js/Directives/compareTo.js"></script>
+
+ 
+       <!-- Animation-->
+      <link rel="stylesheet" href="animate.css">
+
+
+  </head><body ng-app="Hive" ng-controller="RegisterController">
+    <div class="section">
+     
+       <div  class="animated bounceInRight">
+
+        <div class="container" ng-show="verified">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-center" ><div class="animated zoomin">Add Service</div></h1>
+              <p class="text-center lead">Please Complete information about the service being offered</p>
+              <form class="form-horizontal" role="form" name="FormTwo" ng-submit="addService()">
+                <div class="form-group">
+                  <div class="col-sm-2">
+                    <label for="servicedescription" class="control-label">Service Description</label>
+                  </div>
+                  <div class="col-sm-10">
+               
+                   <textarea class="form-control"  ng-model="serviceData.description" placeholder="Describe"  name="servicedescription" rows="5" id="servicedescription" required></textarea>
+                    
+                  </div>
+                </div>
+                
+
+
+                   <div class="form-group" ng-controller="Category">
+                  <div class="col-sm-2">
+                    <label for="servicecategory" class="control-label">Service Category</label>
+                  </div>
+                  <div class="col-sm-10">
+
+
+
+               
+                  <select   ng-model="serviceData.category_id" ng-options="thecategory.id as thecategory.name for thecategory in category " > 
+                    <option value="">Select Category</option>
+
+                    </select>
+                    
+                  </div>
+                </div>
+
+                  <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info" ng-disabled="!FormTwo.$valid">Add Service</button>
+              </div>
+            </div>
+              </form>
+            </div>
+          
+          </div>
+        </div>
+        </div>
+     
+        
+            
+           
+            </div>
+    
+
+                </div>
+          </div>
+        </div>
+      
+    </div>
+    <footer class="section section-info">
+      <div class="container">
+        <div class="row text-left">
+          <div class="col-sm-6 text-left">
+            <p class="text-info text-left">
+              <br>
+              <br>
+            </p>
+            <div class="row">
+              <div class="col-md-12 hidden-lg hidden-md hidden-sm text-left">
+                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 hidden-xs text-left">
+                <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+
+</body></html>

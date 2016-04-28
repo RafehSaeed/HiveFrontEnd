@@ -5,8 +5,10 @@
 function RegisterCtrl($scope,$http,$location,$window) { 
 
      $scope.registered = false;
+     $scope.verified =  ($window.sessionStorage.verified == 'true');
      $scope.register_status ="";
      $scope.usertype = "";
+
       //Form for registering login information
       this.formData = {
              username: '',
@@ -19,6 +21,16 @@ function RegisterCtrl($scope,$http,$location,$window) {
              buisnessname: '',
              address:'',
              postalcode:''
+
+
+        };
+
+     this.serviceData= {
+              username: 'Rafeh',
+             category_id:'',
+             service_provider_id:''
+         
+           
 
 
         };
@@ -56,6 +68,9 @@ function RegisterCtrl($scope,$http,$location,$window) {
 })
 }
 
+
+
+
 //Function user to complete user Registeration
 $scope.Complete = function () {
 
@@ -67,20 +82,39 @@ $scope.Complete = function () {
     $http.post('http://localhost:3000/register',session).
     success(function(data, status, headers, config) {
     $window.location.href = "http://127.0.0.1:8080/index.html";  // Registeration complete go index page
-       
-
-    
-         
-})
+    })
   
 
+}
+
+
+//Function user to let serviceProvider add a service
+$scope.addService = function () {
 
 
 
+ var service = JSON.stringify(this.serviceData);
+ var serviceobject = JSON.parse(service); // parsing Json Object
+ serviceobject.username =   $window.sessionStorage.username;
+ var serviceobject  = JSON.stringify(serviceobject );
 
 
+    console.log(serviceobject);
+
+    $http.post('http://localhost:3000/addservice',serviceobject).
+    success(function(data, status, headers, config) {
+
+    })
+  
 
 }
+
+
+
+
+
+
+
 
 
 }

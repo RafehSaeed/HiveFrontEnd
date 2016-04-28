@@ -8,6 +8,8 @@ function LoginCtrl($scope,$http,$location,$window) {
       if($window.sessionStorage.loggedin == "true"){
        $scope.loggedin = true;
        $scope.username =  $window.sessionStorage.username;
+       $scope.verified =  ($window.sessionStorage.verified == 'true');
+       $scope.selectedcategory = "";
      }
 
       else
@@ -16,6 +18,7 @@ function LoginCtrl($scope,$http,$location,$window) {
       }
 
        console.log($scope.loggedin);
+       console.log($scope.verified);
 
          this.formData = {
              password: '',
@@ -73,6 +76,7 @@ function LoginCtrl($scope,$http,$location,$window) {
               $scope.loggedin= true;
               $window.sessionStorage.loggedin = true;
               $window.sessionStorage.username = data.username
+              $window.sessionStorage.verified = data.verified
             // $window.sessionStorage.username = data[username];
             
 
@@ -82,7 +86,7 @@ function LoginCtrl($scope,$http,$location,$window) {
 
              
 
-               $window.location.href = "http://127.0.0.1:8080/mainpage.html";
+            $window.location.href = "http://127.0.0.1:8080/mainpage.html";
              }
       
               }
@@ -117,9 +121,10 @@ app.controller('Buisness',buisness);
 app.controller('Service',service);
 
 // Categories Factory
-     function category($scope,category) {
+     function category($scope,category,$window) {
   category.success(function(data) {
   $scope.category = data;
+
    // console.log(data);
   });
 }
